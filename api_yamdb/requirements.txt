@@ -1,0 +1,8 @@
+Django==2.2.19
+python-dotenv
+djangorestframework
+django-filter
+djangorestframework-simplejwt==4.7.2
+djoser
+gunicorn
+psycopg2-binary
