@@ -1,15 +1,10 @@
-from csv import DictReader
 import os
-from django.conf import settings
+from csv import DictReader
 
+from django.conf import settings
 from django.core.management.base import BaseCommand
-from reviews.models import (Category,
-                            Comment,
-                            Genre,
-                            GenreTitle,
-                            Review,
-                            Title,
-                            User)
+from reviews.models import (Category, Comment, Genre, GenreTitle, Review,
+                            Title, User)
 
 path_data = os.path.join(settings.STATICFILES_DIRS[0], 'data/')
 

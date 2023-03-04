@@ -1,12 +1,11 @@
 from django.core.exceptions import ValidationError
 from django.core.validators import MaxValueValidator, MinValueValidator
 from django.shortcuts import get_object_or_404
-
 from rest_framework import serializers
 from rest_framework.validators import UniqueValidator
+from reviews.models import Category, Comment, Genre, Review, Title, User
 
 from .validators import validate_year
-from reviews.models import Category, Comment, Genre, Review, Title, User
 
 
 class TokenSerializer(serializers.ModelSerializer):

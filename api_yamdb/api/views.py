@@ -1,3 +1,8 @@
+from api.serializers import (CategorySerializer, CommentSerializer,
+                             GenreSerializer, ReviewSerializer,
+                             SignUpSerializer, TitleSerializer,
+                             TitleSerializerReadOnly, TokenSerializer,
+                             UserSerializer)
 from django.contrib.auth.tokens import default_token_generator
 from django.core.mail import send_mail
 from django.db.models import Avg
@@ -10,18 +15,12 @@ from rest_framework.permissions import (AllowAny, IsAuthenticated,
                                         IsAuthenticatedOrReadOnly)
 from rest_framework.response import Response
 from rest_framework_simplejwt.tokens import RefreshToken
-
-
 from reviews.models import Category, Genre, Review, Title, User
-from api.serializers import (CategorySerializer, CommentSerializer,
-                             GenreSerializer, ReviewSerializer,
-                             SignUpSerializer, TitleSerializer,
-                             TitleSerializerReadOnly, TokenSerializer,
-                             UserSerializer)
+
+from .custom_mixins import CategoryGenreViewSet
 from .filters import TitlesFilter
 from .permissions import (IsAdminOrReadOnly, IsAuthorOrReadOnly,
                           IsSuperUserOrAdmin)
-from .custom_mixins import CategoryGenreViewSet
 
 
 @api_view(['POST'])
@@ -108,8 +107,7 @@ class ReviewViewSet(viewsets.ModelViewSet):
     pagination_class = LimitOffsetPagination
 
     def get_title(self):
-        title = get_object_or_404(Title, pk=self.kwargs.get('title_id'))
-        return title
+        return get_object_or_404(Title, pk=self.kwargs.get('title_id'))
 
     def get_queryset(self):
         title = self.get_title()
@@ -128,9 +126,8 @@ class CommentViewSet(viewsets.ModelViewSet):
     search_fields = ('text', )
 
     def get_review(self):
-        review = get_object_or_404(Review, id=self.kwargs.get('review_id'),
-                                   title__id=self.kwargs.get('title_id'))
-        return review
+        return get_object_or_404(Review, id=self.kwargs.get('review_id'),
+                                 title__id=self.kwargs.get('title_id'))
 
     def get_queryset(self):
         review = self.get_review()
