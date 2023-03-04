@@ -34,12 +34,19 @@ jobs:
         # запуск проверки проекта по flake8
         python -m flake8
 
-    - name: checkins
+    - name: ls
       run: |
-        # запуск проверки проекта по flake8
+        # расположение файлов
         ls
+    - name: pwd
+      run: |
+        # текущая директория
         pwd
+    - name: ls api_yamdb
+      run: |
+        # что в api_yamdb
         ls api_yamdb
+        
 
     - name: Test with pytest
       run: |
