@@ -57,7 +57,6 @@ jobs:
       steps:
         - name: Переходим в директорию с DockerFile
           run: |
-#            cd api_yamdb
             ls
         - name: Check out the repo
           # Проверка доступности репозитория Docker Hub для workflow
