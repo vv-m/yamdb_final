@@ -38,7 +38,7 @@ jobs:
     - name: Test with pytest
       run: |
         # запуск проверки pytest
-        pytest
+        python -m pytest
 #
 #  build_and_push_to_docker_hub:
 #      name: Push Docker image to Docker Hub
