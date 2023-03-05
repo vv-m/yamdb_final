@@ -38,6 +38,17 @@ jobs:
       run: |
         # запуск проверки pytest
         python -m pytest
+
+  send_message:
+    runs-on: ubuntu-latest
+    needs:   tests
+    steps:
+      - name: send message
+        uses: appleboy/telegram-action@master
+        with:
+          to: ${{ secrets.TELEGRAM_TO }}
+          token: ${{ secrets.TELEGRAM_TOKEN }}
+          message: Тесты ${{ github.workflow }} успешно пройдены!
 #
 #  build_and_push_to_docker_hub:
 #      name: Push Docker image to Docker Hub
@@ -85,14 +96,4 @@ jobs:
 #            echo DB_HOST=${{ secrets.DB_HOST }} >> .env
 #            echo DB_PORT=${{ secrets.DB_PORT }} >> .env
 #            sudo docker-compose up -d
-  send_message:
-#    Кооммент для теста222
-    runs-on: ubuntu-latest
-#    needs: deploy
-    steps:
-      - name: send message
-        uses: appleboy/telegram-action@master
-        with:
-          to: ${{ secrets.TELEGRAM_TO }}
-          token: ${{ secrets.TELEGRAM_TOKEN }}
-          message: ${{ github.workflow }} успешно выполнен!
+
