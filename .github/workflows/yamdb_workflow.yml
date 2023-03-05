@@ -55,7 +55,7 @@ jobs:
       runs-on: ubuntu-latest
       needs: tests
       steps:
-        - name: Переходим в директорию с DockerFile
+        - name: Go to directory with DockerFile
           run: |
             ls
         - name: Check out the repo
