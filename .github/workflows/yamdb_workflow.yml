@@ -61,8 +61,7 @@ jobs:
         - name: Set up Docker Buildx
           # Вызов сборщика контейнеров docker
           uses: docker/setup-buildx-action@v1
-          with:
-            file: api_yamdb/Dockerfile
+
         - name: Login to Docker
           # Запуск скрипта авторизации на Docker Hub
           uses: docker/login-action@v1
@@ -75,6 +74,7 @@ jobs:
           with:
             push: true
             tags: vlad372/api_yamdb-web:latest
+            file: api_yamdb/Dockerfile
 
   send_message_docker:
       runs-on: ubuntu-latest
