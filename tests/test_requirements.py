@@ -3,7 +3,7 @@ import os
 
 from django.conf import settings
 
-# os.environ['DJANGO_SETTINGS_MODULE'] = 'api_yamdb.api_yamdb.settings'
+os.environ['DJANGO_SETTINGS_MODULE'] = 'api_yamdb.api_yamdb.settings'
 
 
 class TestRequirements:
