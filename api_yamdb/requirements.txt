@@ -6,4 +6,6 @@ djangorestframework-simplejwt==4.7.2
 djoser
 gunicorn
 psycopg2-binary
-pytest-django
+pytest==6.2.4
+pytest-django==4.4.0
+pytest-pythonpath==0.7.3
