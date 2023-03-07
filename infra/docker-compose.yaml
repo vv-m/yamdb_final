@@ -16,17 +16,17 @@ services:
       - ./.env
   web:
     # Путь до докер контейнера с приложением
-    # build: ../api_yamdb
-    image: vlad372/api_yamdb-web
+    build: ../api_yamdb
+#    image: vlad372/api_yamdb-web
     restart: always
     volumes:
-      # Контейнер web будет работать с данными, хранящиеся в томе static_value, 
+      # Контейнер web будет работать с данными, хранящиеся в томе static_value,
       # через свою директорию /app/static/
       - static_value:/app/static/
-      # Данные, хранящиеся в томе media_value, будут доступны в контейнере web 
+      # Данные, хранящиеся в томе media_value, будут доступны в контейнере web
       # через директорию /app/media/
       - media_value:/app/media/
-    # «зависит от», 
+    # «зависит от»,
     depends_on:
       - db
     env_file:
@@ -37,7 +37,7 @@ services:
     # образ, из которого должен быть запущен контейнер
     image: nginx:1.21.3-alpine
 
-    # запросы с внешнего порта 80 перенаправляем на внутренний порт 80
+#    # запросы с внешнего порта 80 перенаправляем на внутренний порт 80
     ports:
       - "80:80"
 
