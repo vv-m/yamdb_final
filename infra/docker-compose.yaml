@@ -16,8 +16,8 @@ services:
       - ./.env
   web:
     # Путь до докер контейнера с приложением
-    build: ../api_yamdb
-#    image: vlad372/api_yamdb-web
+#    build: ../api_yamdb
+    image: vlad372/api_yamdb-web
     restart: always
     volumes:
       # Контейнер web будет работать с данными, хранящиеся в томе static_value,
