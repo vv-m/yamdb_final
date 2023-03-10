@@ -79,7 +79,7 @@ jobs:
           script: |
             sudo docker-compose stop
             sudo docker-compose rm web
-            docker rmi -f ${{ secrets.DOCKER_USERNAME }}/api_yamdb-web
+            sudo docker rmi -f ${{ secrets.DOCKER_USERNAME }}/api_yamdb-web
             touch .env
             echo DB_ENGINE=${{ secrets.DB_ENGINE }} >> .env
             echo DB_NAME=${{ secrets.DB_NAME }} >> .env
