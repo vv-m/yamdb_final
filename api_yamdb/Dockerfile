@@ -12,7 +12,7 @@ WORKDIR /app
 
 COPY . .
 
-RUN pip3 install -r requirements.txt --no-cache-dir
+RUN ls
 
 #RUN pip3 install -r requirements.txt --no-cache-dir
 
